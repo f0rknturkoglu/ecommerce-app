@@ -15,7 +15,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh 'sonar-scanner -Dsonar.projectKey=ecommerce-app -Dsonar.host.url=172.19.0.2:9090'
+                    sh 'sonar-scanner -Dsonar.projectKey=ecommerce-app -Dsonar.host.url=http://172.19.0.2:9000'
                 }
             }
         }
