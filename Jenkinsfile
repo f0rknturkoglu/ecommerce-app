@@ -12,5 +12,12 @@ pipeline {
                 sh '. venv/bin/activate && pytest tests/'
             }
         }
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh 'sonar-scanner -Dsonar.projectKey=e-commerce-app -Dsonar.host.url=http://localhost:9000'
+                }
+            }
+        }
     }
 }
